@@ -1,5 +1,9 @@
 #ifndef STUDENT_H
 #define STUDENT_H
+#include <iostream>
+#include <string.h>
+#include <fstream>
+using namespace std;
 struct date
 {
     int day;
@@ -9,10 +13,11 @@ struct date
 struct Student
 {
     int ID;
+    int No;
     char* FirstName;
     char* LastName;
     char* Gender;
-    date birh;
+    date birth;
     int socialID;
 };
 struct NodeS
@@ -20,11 +25,18 @@ struct NodeS
     Student data;
     NodeS* pNext;
 };
-struct ListStudent
+struct Class
 {
     NodeS* pHead;
     NodeS* pTail;
 };
-void init(ListStudent& l);
-NodeS createStudent();
+void init(Class& l);
+NodeS* createStudent();
+date input();
+void Addlast(Class& l);
+void ViewClass(Class l);
+void outputStudent(NodeS* p);
+void AddFirst(Class& l);
+void Swap(Class& l,NodeS* &p,NodeS* &q);
+void Sort(Class& l);
 #endif

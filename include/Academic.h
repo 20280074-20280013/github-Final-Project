@@ -10,8 +10,8 @@ struct Academic
 };
 struct node
 {
-	Acadamic data;
+	Academic data;
 	node* pNext;
 };
-struct CreateAcademic(Academic a)
+Academic* Create();
 #endif
