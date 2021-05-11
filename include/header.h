@@ -7,5 +7,19 @@ struct Academic
     char* gender;
     char* FullName;
 };
+struct Birth
+{
+    int day;
+    int month;
+    int year;
+};
+struct Student
+{
+    int ID;
+    char* name;
+    char* gender;
+    Birth date;
+    int SocialID;
+};
 
 #endif
