@@ -15,7 +15,7 @@ void CreateSchoolYear(SchoolYear& s)
 	}
 	s.YearEnd = s.YearBegin + 1;
 	int n = 0;
-	cout << "Creaate a semester";
+	cout << "Create a semester";
 	cout << "Choose a semester: " << endl;
 	cout << "1. Semester 1 (FALL)" << endl;
 	cout << "2. Semester 2 (WINTER)" << endl;
@@ -28,7 +28,36 @@ void CreateSchoolYear(SchoolYear& s)
 		cin >> n;
 	}
 }
-Semester CreateSemester()
+Course CreateCourse()
 {
-     Semester
+	Course s;
+	cout << "Input start date: " << endl;
+	cout << "Day: ";
+	cin >> s.startDate.day;
+	cout << "Month: ";
+	cin >> s.startDate.month;
+	cout << "Year: ";
+	cin >> s.startDate.year;
+	cout << "Input end date: " << endl;
+	cout << "Day: ";
+	cin >> s.endDate.day;
+	cout << "Month: ";
+	cin >> s.endDate.month;
+	cout << "Year: ";
+	cin >> s.endDate.year;
+	cout << "Input course ID: ";
+	char tempID[100];
+	cin.getline(tempID, 100 + 1);
+	s.CourseID = new char[strlen(tempID)+1];
+	strcpy(s.CourseID, tempID);
+	cout << "Input course Name: ";
+	char tempName[100];
+	cin.getline(tempName, 100 + 1);
+	s.CourseName = new char[strlen(tempName) + 1];
+	strcpy(s.CourseName, tempName);
+	cout << "Input Teacher Name: " << endl;
+	char tempTeacher[100];
+	s.TeacherName = new char[strlen(tempTeacher) + 1];
+	cin.getline(tempTeacher, s.TeacherName);
+
 }
