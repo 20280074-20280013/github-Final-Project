@@ -19,6 +19,7 @@ struct Student
     char* Gender;
     date birth;
     int socialID;
+    int Pass;
 };
 struct NodeS
 {
@@ -27,6 +28,7 @@ struct NodeS
 };
 struct Class
 {
+    char ClassName[10];
     NodeS* pHead;
     NodeS* pTail;
 };
@@ -39,4 +41,6 @@ void outputStudent(NodeS* p);
 void AddFirst(Class& l);
 void Swap(Class& l,NodeS* &p,NodeS* &q);
 void Sort(Class& l);
+NodeS* Register();
+bool Login();
 #endif

@@ -164,3 +164,39 @@ void Sort(Class& l)
     min = min->pNext;
     }
 }
+NodeS* Register()
+{
+    char tempFirst[100];
+    char tempLast[100];
+    char tempGen[100];
+    NodeS* p = new NodeS;
+    if(p==NULL)
+    exit(1);
+    Class a;
+    cout << "Class " << endl;
+    cout << "ID " << endl;
+    cin>> p->data.ID;
+    cout << "Birth " << endl;
+    cin >> p->data.birth.day >> p->data.birth.month >> p->data.birth.year;
+    cout << "First Name "<< endl;
+    cin.getline(tempFirst,100);
+    p->data.FirstName = new char[strlen(tempFirst)+1];
+    strcpy(p->data.FirstName,tempFirst);
+    cout << "Last name "<<endl;
+    cin.getline(tempLast,100);
+    p->data.LastName = new char[strlen(tempLast)+1];
+    strcpy(p->data.FirstName,tempLast);
+    cout << "Gender "<<endl;
+    cin.getline(tempGen,100);
+    p->data.Gender = new char[strlen(tempGen)+1];
+    strcpy(p->data.Gender,tempGen);
+    cout << "Password "<< endl;
+    cin>> p->data.Pass;
+    cout << "Social ID "<<endl;
+    cin>> p->data.socialID;
+    return p;
+}
+bool Login()
+{
+    
+}
