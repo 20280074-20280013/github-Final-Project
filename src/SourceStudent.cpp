@@ -75,10 +75,15 @@ void AddFirst(Class& l)
 }
 void outputStudent(NodeS* p)
 {
+    cout << p->data.No << "  | " << p->data.FirstName << "  | " << p->data.LastName << "  | "<<p->data.Gender<< "  | "
+    << p->data.birth.day << "/"<<p->data.birth.month << "/"<<p->data.birth.year
+    << "  | "<< p->data.socialID << "  | " << endl;
 }
 void ViewClass(Class l)
 {
     NodeS* temp = l.pHead;
+    cout << "No " << " | " << "First name " << " | " << " Last name " << " | "<< "Gender " << " | "
+    << " Date of birth " << " | "<< " Social ID " << " | " << endl;
     if(temp == NULL)
     return;
     while(temp != NULL)
@@ -87,5 +92,75 @@ void ViewClass(Class l)
         temp = temp->pNext;
     }    
 }
-void Swap(Class& l,NodeS* &p,NodeS* &q);
-void Sort(Class& l);
+void Swap(Class& l,NodeS* &p,NodeS* &q)
+{
+    NodeS* pPrev= l.pHead;
+    NodeS* qPrev= l.pHead;
+    if(p == l.pHead)
+    {
+        if(p->pNext == q)
+        {
+            p->pNext = q->pNext;
+            q->pNext = p;
+            l.pHead = q;
+        }
+        else
+        {
+            while(qPrev->pNext != q)
+            {
+                qPrev = qPrev ->pNext;
+            }
+            NodeS* temp = p->pNext;
+            p->pNext = q->pNext;
+            q->pNext = temp;
+            qPrev->pNext = p;
+        }
+    }
+    else if(p->pNext == q)
+    {
+        while(pPrev->pNext != p)
+        pPrev = pPrev->pNext;
+        p->pNext = q->pNext;
+        pPrev->pNext= q;
+        q->pNext = p;
+    }
+    else
+    {        
+        while(pPrev->pNext != p)
+        pPrev = pPrev->pNext;
+        while(qPrev->pNext != q)
+        qPrev = qPrev->pNext;
+        NodeS* temp = p->pNext;
+        p->pNext = q->pNext;
+        q->pNext = temp;
+        qPrev->pNext = p;
+        pPrev->pNext= q;
+    }
+    NodeS* Temporary = l.pHead;
+    while(Temporary->pNext != NULL)
+    Temporary = Temporary->pNext;
+    l.pTail = Temporary;
+}
+void Sort(Class& l)
+{
+    if(l.pHead== NULL || l.pHead->pNext == NULL)
+    return;
+    NodeS* min = l.pHead;
+    NodeS*  temp;
+    while(min->pNext != NULL)
+    {
+        temp=min->pNext;
+    while(temp != NULL)
+    {
+        if(temp->data.No <min->data.No)
+        {
+            Swap(l,min,temp);
+            NodeS* Tempo = temp;
+            temp = min;
+            min = Tempo;
+        }
+        temp=temp->pNext;
+    }
+    min = min->pNext;
+    }
+}
